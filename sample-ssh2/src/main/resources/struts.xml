@@ -7,8 +7,11 @@
 	<constant name="struts.i18n.encoding" value="GBK" />
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.objectFactory" value="spring" />
+	
 	<package name="default" extends="struts-default">
-		
+		<action name="login" class="login">
+			<result></result>
+		</action>
 	</package>
 
 </struts>

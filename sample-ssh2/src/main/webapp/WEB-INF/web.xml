@@ -47,8 +47,7 @@
 
     <filter>
         <filter-name>struts-execute</filter-name>
-        <filter-class>
-	org.apache.struts2.dispatcher.ng.filter.StrutsExecuteFilter</filter-class>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsExecuteFilter</filter-class>
     </filter>
 	    
     <filter>  

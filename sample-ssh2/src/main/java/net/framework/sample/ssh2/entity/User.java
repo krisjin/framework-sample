@@ -10,6 +10,7 @@ import javax.persistence.Table;
 public class User extends IdEntity {
 
 	private String name;
+	private String password;
 	private short sex;
 	private short age;
 	private UserBlog userBlog;
@@ -50,4 +51,12 @@ public class User extends IdEntity {
 		this.age = age;
 	}
 
+	@Column(name = "password")
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }

@@ -5,8 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table(name = "user")
+@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE,region="net.framework.sample.ssh2.entity")
 public class User extends IdEntity {
 
 	private String name;

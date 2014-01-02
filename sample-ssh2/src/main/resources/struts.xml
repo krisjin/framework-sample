@@ -9,9 +9,9 @@
 	<constant name="struts.objectFactory" value="spring" />
 	
 	<package name="default" extends="struts-default">
+		<default-action-ref name="login"/>
 		<action name="login" class="login">
-			<result></result>
+			<result name="login">login.jsp</result>
 		</action>
 	</package>
-
 </struts>

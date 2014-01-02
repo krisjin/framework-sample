@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
 	@Autowired
-	private IUserDao userDdao;
+	private IUserDao userDao;
 
 	public IUserDao getUserDdao() {
-		return userDdao;
+		return userDao;
 	}
 
 	public void setUserDdao(IUserDao userDdao) {
-		this.userDdao = userDdao;
+		this.userDao = userDdao;
 	}
 
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-@Scope("Prototype")
+@Scope("prototype")
 @Controller("login")
 public class LoginAction extends ActionSupport{
 	
@@ -19,7 +19,7 @@ public class LoginAction extends ActionSupport{
 
 	public String execute() throws Exception {
 		
-		return super.execute();
+		return "login";
 	}
 
 	public UserService getUserService() {

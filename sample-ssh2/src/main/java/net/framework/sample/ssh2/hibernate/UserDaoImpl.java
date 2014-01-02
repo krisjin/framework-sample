@@ -3,6 +3,9 @@ package net.framework.sample.ssh2.hibernate;
 import net.framework.sample.ssh2.dao.IUserDao;
 import net.framework.sample.ssh2.entity.User;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class UserDaoImpl extends HibernateDao<User,Long> implements IUserDao {
 
 	

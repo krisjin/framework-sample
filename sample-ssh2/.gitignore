@@ -2,3 +2,4 @@
 /.settings
 /.classpath
 /src/main/resources/log4j.properties
+/src/main/resources/application.properties

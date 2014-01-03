@@ -12,6 +12,7 @@
 		<default-action-ref name="login"/>
 		<action name="login" class="login">
 			<result name="login">login.jsp</result>
+			<result name="info">info.jsp</result>
 		</action>
 	</package>
 </struts>

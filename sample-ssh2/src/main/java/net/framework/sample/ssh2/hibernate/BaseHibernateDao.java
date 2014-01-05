@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BaseHibernateDao<T, PK extends Serializable> {
-
+	
 	protected SessionFactory sessionFactory;
 
 	protected Class<T> entityClass;
@@ -17,16 +17,20 @@ public abstract class BaseHibernateDao<T, PK extends Serializable> {
 	public BaseHibernateDao() {
 		this.entityClass = ReflectionUtils.getSuperClassGenricType(getClass());
 	}
+	
+	public BaseHibernateDao(final SessionFactory sessionFactory, final Class<T> entityClass) {
+		this.sessionFactory = sessionFactory;
+		this.entityClass = entityClass;
+	}
 
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
 
-	@Autowired
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
-
+	@Autowired
 	public void setSessionFactory(final SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}

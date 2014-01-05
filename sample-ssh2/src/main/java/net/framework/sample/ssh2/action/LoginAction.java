@@ -1,5 +1,6 @@
 package net.framework.sample.ssh2.action;
 
+import net.framework.sample.ssh2.entity.User;
 import net.framework.sample.ssh2.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +42,18 @@ public class LoginAction extends ActionSupport{
 	}
 	
 	public String login(){
-		System.out.println(name+":"+password);
+		System.out.println(name+":"+password+"");
 		return "info";
 	}
+	
+	public String  register(){
+		User user=new User();
+		user.setName(name);
+		user.setPassword(password);
+		userService.save(user);
+		return "registerSuccess";
+	}
+	
 	public UserService getUserService() {
 		return userService;
 	}

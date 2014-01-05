@@ -13,6 +13,7 @@
 		<action name="login" class="login">
 			<result name="login">login.jsp</result>
 			<result name="info">info.jsp</result>
+			<result name="registerSuccess">rs.jsp</result>
 		</action>
 	</package>
 </struts>

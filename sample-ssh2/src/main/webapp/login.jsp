@@ -82,15 +82,35 @@
 			</p>
 		</div>
 
-		<form class="form-signin" role="form" action="login!login.action" method="post">
-			<h2 class="form-signin-heading">Please sign in</h2>
-			<input type="text" class="form-control" name="name" placeholder="Email address" required autofocus>
-				 <input type="password" class="form-control" name="password" placeholder="Password" required>
-				  <label class="checkbox"> <input type="checkbox" value="remember-me">
-				Remember me
-			</label>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-				in</button>
+		<!-- 		<form class="form-signin" role="form" action="login!login.action" -->
+		<!-- 			method="post"> -->
+		<!-- 			<h2 class="form-signin-heading">Please sign in</h2> -->
+		<!-- 			<input type="text" class="form-control" name="name" -->
+		<!-- 				placeholder="Email address" required autofocus> <input -->
+		<!-- 				type="password" class="form-control" name="password" -->
+		<!-- 				placeholder="Password" required> <label class="checkbox"> -->
+		<!-- 				<input type="checkbox" value="remember-me"> Remember me -->
+		<!-- 			</label> -->
+		<!-- 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign -->
+		<!-- 				in</button> -->
+		<!-- 		</form> -->
+		<form role="form" action="login!register.action" method="post">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email address</label> <input
+					type="text" class="form-control" id="exampleInputEmail1"
+					placeholder="Enter email">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label> <input
+					type="password" class="form-control" id="exampleInputPassword1"
+					placeholder="Password">
+			</div>
+			<div class="checkbox">
+				<label> 
+					<input type="checkbox" name="remember"> Check me out
+				</label>
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
 	</div>
 

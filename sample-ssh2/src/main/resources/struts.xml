@@ -16,4 +16,12 @@
 			<result name="registerSuccess">rs.jsp</result>
 		</action>
 	</package>
+	
+	<package name="json" extends="json-default" namespace="/">
+		<action name="ups" class="upload">  
+            <result name="up" type="json">
+            	<param name="excludeProperties">file,fileContentType,fileFileName</param>
+            </result>   
+        </action>
+	</package>
 </struts>

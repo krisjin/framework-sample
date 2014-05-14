@@ -7,6 +7,7 @@
 	<constant name="struts.i18n.encoding" value="GBK" />
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.objectFactory" value="spring" />
+	 <constant name="struts.multipart.maxSize" value="69842918"/>
 	
 	<package name="default" extends="struts-default">
 		<default-action-ref name="login"/>

@@ -31,7 +31,6 @@ public class UploadAction extends ActionSupport {
 
 	@SuppressWarnings("deprecation")
 	public String upload() {
-		
 		for (int i = 0; i < file.size(); i++) {
 			String root = ServletActionContext.getRequest().getRealPath("/upload");
 

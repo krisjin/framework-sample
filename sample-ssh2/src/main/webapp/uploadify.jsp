@@ -6,11 +6,11 @@
 <%pageContext.setAttribute("baseURL", request.getContextPath()); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>struts2 +jquey uploadify3.2 实现多文件上传，可预览、删除、排序</title>
-<script src="${baseURL}/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="${baseURL}/js/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
-<script src="${baseURL}/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
-<link   href="${baseURL}/js/uploadify//uploadify.css" rel="stylesheet" type="text/css" >
-<link   href="${baseURL}/jquery-ui-1.10.4.custom/development-bundle/themes/base/jquery.ui.all.css"  rel="stylesheet" type="text/css" >
+<script src="${baseURL}/uploadify/jquery.min.js" type="text/javascript"></script>
+<script src="${baseURL}/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
+<%-- <script src="${baseURL}/uploadify/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script> --%>
+<link   href="${baseURL}/uploadify/uploadify.css" rel="stylesheet" type="text/css" >
+<%-- <link   href="${baseURL}/jquery-ui-1.10.4.custom/development-bundle/themes/base/jquery.ui.all.css"  rel="stylesheet" type="text/css" > --%>
 <style type="text/css">
 	div.show{
 		width:800px;
@@ -30,39 +30,42 @@
 
 <script type="text/javascript">  
 	$(function() {
-		$("#upload").button({
-			icons:{
-				primary: "ui-icon-play"
-			}
-		});
-		$("#cancel").button({
-			icons:{
-				primary: "ui-icon-cancel"
-			}
-		});
+// 		$("#upload").button({
+// 			icons:{
+// 				primary: "ui-icon-play"
+// 			}
+// 		});
+// 		$("#cancel").button({
+// 			icons:{
+// 				primary: "ui-icon-cancel"
+// 			}
+// 		});
 		$("#uploadFile").uploadify({  
-			swf: '${baseURL}/js/uploadify/uploadify.swf',  		//[必须设置]swf的路径
-			uploader: '${baseURL}/ups!upload.action',  //[必须设置]上传文件触发的url
-			width: 120,  										//设置浏览按钮的宽度 ，默认值：110
-			height:25,											//设置浏览按钮的高度， 默认值：30。
-			fileObjName:'file',  								//上传文件name
-			auto: false,  										//设置为true当选择文件后就直接上传了，为false需要点击上传按钮才上传
-			buttonText: '选择文件' ,  						//浏览按钮的文本，默认值：BROWSE 
-			multi: true,  										//设置为true时可以上传多个文件
-			queueID: 'some_file_queue',  				//文件队列的ID，该ID与存放文件队列的div的ID一致
-			fileTypeExts:'*.jpg;*.jpge;*.gif;*.png;*.pdf;*.rar;',  	//允许上传的文件后缀  
-			fileSizeLimit:'21MB',  							//上传文件的大小限制  
-			queueSizeLimit: 35,  								//上传数量  
-			progressData : 'all',							//队列中显示文件上传进度的方式：all-上传速度+百分比，percentage-百分比，speed-上传速度
-			removeCompleted : true,					//上传成功后的文件，是否在队列中自动删除
-			method:'post',									//和后台交互的方式：post/get
+			swf: '${baseURL}/js/uploadify/uploadify.swf', 
+			uploader: '${baseURL}/ups!upload.action',
+			width: 90,  										
+			height:25,											
+			fileObjName:'file',
+			auto: false,
+			buttonText: '选择文件' ,
+			multi: true,
+			queueID: 'some_file_queue',
+			fileTypeExts:'*.jpg;*.jpge;*.gif;*.png;*.pdf;*.rar;',
+			fileSizeLimit:'100MB',
+			queueSizeLimit: 10,
+			progressData : 'all',	//队列中显示文件上传进度的方式：all-上传速度+百分比，percentage-百分比，speed-上传速度
+			removeCompleted : true,	//上传成功后的文件，是否在队列中自动删除
+			method:'post',		//和后台交互的方式：post/get
 			onUploadSuccess: function(file, data, response){
 					/* alert( 'id: ' + file.id+ ' - 索引: ' + file.index+ ' - 文件名: ' + file.name
 					+ ' - 文件大小: ' + file.size+ ' - 类型: ' + file.type+ ' - 创建日期: ' + file.creationdate
 					+ ' - 修改日期: ' + file.modificationdate+ ' - 文件状态: ' + file.filestatus+ ' - 服务器端消息: ' + data
 					+ ' - 是否上传成功: ' + response); */
+					alert(data);
+					
 					var url = eval('(' + data + ')');  
-					$("div.show ul").append("<li><img src=${baseURL}/upload/"+url.newImgPath[0]+" width='220px' height='250px' /><li>");
+// 					$("div.show ul").append("<li><img src=${baseURL}/upload/"+url.newImgPath[0]+" width='220px' height='250px' /><li>");
+					$("div.show ul").append("<li><a href=${baseURL}/upload/"+url.newImgPath[0]+" >"+url.newImgPath[0]+"</a></li>");
 			},
 			onFallback:function(){  
 					alert("您未安装FLASH控件，无法上传图片！请安装FLASH控件后再试。");  
